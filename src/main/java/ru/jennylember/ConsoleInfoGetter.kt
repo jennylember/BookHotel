@@ -19,7 +19,7 @@ class ConsoleInfoGetter: InfoGetter {
         return BookInfo(LocalDate.parse(dateCheckIn, FORMATTER), nights.toInt(), numberOfGuests.toInt())
     }
 
-    override fun provideHotelId(): String {
+    override fun getHotelId(): String {
         println("Введите ID выбранного отеля:")
         return readLine()!!
     }

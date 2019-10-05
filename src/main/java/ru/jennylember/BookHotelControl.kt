@@ -53,7 +53,7 @@ class BookHotelControl(val infoGetter: InfoGetter) {
 
            availableHotel(bookInfo, hotels)
 
-           val hotelId = infoGetter.provideHotelId()
+           val hotelId = infoGetter.getHotelId()
 
            val myBooking = getBooking(newGuest, bookInfo, hotelId.toInt(), hotels)
 
@@ -69,7 +69,7 @@ class BookHotelControl(val infoGetter: InfoGetter) {
         for (hotel in hotels) {
             for (room in (hotel.rooms)) {
                 if (!room.isBooked) {
-                    if (room.type.ordinal == bookInfo.numberOfGuest) {
+                    if (room.type.numberOfGuests == bookInfo.numberOfGuest) {
                         i++
                         price = room.price
                     }
@@ -91,7 +91,7 @@ class BookHotelControl(val infoGetter: InfoGetter) {
             if (hotel.ID == hotelId) {
                 for (room in hotel.rooms) {
                     if (!room.isBooked) {
-                        if (room.type.ordinal == bookInfo.numberOfGuest) {
+                        if (room.type.numberOfGuests == bookInfo.numberOfGuest) {
                             room.isBooked = true
                             return Booking(
                                 hotel,

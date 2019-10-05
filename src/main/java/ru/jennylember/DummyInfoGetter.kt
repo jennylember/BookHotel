@@ -12,7 +12,7 @@ class DummyInfoGetter: InfoGetter {
         return Guest("Евгения", "Лемберская", 27)
     }
 
-    override fun provideHotelId(): String {
+    override fun getHotelId(): String {
         return "4"
     }
 
